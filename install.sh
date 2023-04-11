@@ -13,7 +13,6 @@ green='\e[0;32m'
 purple='\e[0;35m'
 orange='\e[0;33m'
 NC='\e[0m'
-Server_URL="raw.githubusercontent.com/sardinku/engine/main";
 MYIP=$(wget -qO- ipv4.icanhazip.com);
 
 
@@ -55,38 +54,13 @@ clear
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
 echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
 echo "$host" >> /root/domain
-#clear
-#echo -e "\e[0;32mREADY FOR INSTALLATION SCRIPT...\e[0m"
-#echo -e ""
-#sleep 1
-#Install SSH-VPN
-echo -e "\e[0;32mINSTALLING SSH-VPN...\e[0m"
-sleep 1
-wget https://${Server_URL}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
-sleep 3
-clear
-echo -e "\e[0;32mINSTALLING XRAY CORE...\e[0m"
-sleep 3
-wget -q -O /root/xray.sh "https://${Server_URL}/xray.sh"
-chmod +x /root/xray.sh
-./xray.sh
-echo -e "${GREEN}Done!${NC}"
-sleep 2
-clear
 
-# Finish
-rm -f /root/ins-xray.sh
-rm -f /root/ssh-vpn.sh
+wget https://raw.githubusercontent.com/sardinku/engine/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/sardinku/engine/main/xray.sh && chmod +x /root/xray.sh && ./xray.sh
+rm -f /root/*.sh
 
 # Version
-echo "1.0" > /home/ver
 clear
-echo ""
-echo -e "${RB}      .-------------------------------------------.${NC}"
-echo -e "${RB}      |${NC}      ${CB}Installation Has Been Completed${NC}      ${RB}|${NC}"
-echo -e "${RB}      '-------------------------------------------'${NC}"
-echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "      ${WB}Multiport Websocket Autoscript By donaya365${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "  ${WB}»»» Protocol Service «««  |  »»» Network Protocol «««${NC}  "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
@@ -96,14 +70,6 @@ echo -e "  ${RB}♦️${NC} ${YB}Trojan Websocket${NC}        ${WB}|${NC}  ${YB}
 echo -e "  ${RB}♦️${NC} ${YB}Trojan TCP XTLS${NC}         ${WB}|${NC}  ${YB}- TCP TLS${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Trojan TCP${NC}              ${WB}|${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "           ${WB}»»» YAML Service Information «««${NC}          "
-echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}YAML XRAY VMESS WS${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}YAML XRAY VLESS WS${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}YAML XRAY TROJAN WS${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}YAML XRAY TROJAN XTLS${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}YAML XRAY TROJAN TCP${NC}"
-echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "             ${WB}»»» Server Information «««${NC}                 "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Timezone                : Asia/Kuala_Lumpur (GMT +8)${NC}"
@@ -112,27 +78,9 @@ echo -e "  ${RB}♦️${NC} ${YB}Dflate                  : [ON]${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}IPtables                : [ON]${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}Auto-Reboot             : [ON]${NC}"
 echo -e "  ${RB}♦️${NC} ${YB}IPV6                    : [OFF]${NC}"
-echo -e ""
-echo -e "  ${RB}♦️${NC} ${YB}Autoreboot On 06.00 GMT +8${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Backup & Restore VPS Data${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Automatic Delete Expired Account${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Bandwith Monitor${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}RAM & CPU Monitor${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Check Login User${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Check Created Config${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Automatic Clear Log${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}Media Checker${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}DNS Changer${NC}"
-echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "              ${WB}»»» Network Port Service «««${NC}             "
-echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}HTTP                    : 443${NC}"
-echo -e "  ${RB}♦️${NC} ${YB}HTTPS                   : 80, 8080, 8880${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo ""
 secs_to_human "$(($(date +%s) - ${start}))"
-echo ""
-rm -r setup.sh
 echo ""
 echo ""
 read -p "$( echo -e "Press ${orange}[ ${NC}${green}Enter${NC} ${CYAN}]${NC} For Reboot") "
