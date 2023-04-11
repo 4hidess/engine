@@ -73,24 +73,9 @@ chmod +x /root/xray.sh
 echo -e "${GREEN}Done!${NC}"
 sleep 2
 clear
-#Install SET-BR
-echo -e "\e[0;32mINSTALLING SET-BR...\e[0m"
-sleep 1
-
-
-wget -q -O /root/set-br.sh "https://${Server_URL}/set-br.sh"
-chmod +x /root/set-br.sh
-./set-br.sh
-echo -e "${GREEN}Done!${NC}"
-sleep 2
-clear
-
-#rm -rf /usr/share/nginx/html/index.html
-#wget -q -O /usr/share/nginx/html/index.html "https://raw.githubusercontent.com/donaya365/Multiport/main/OTHERS/index.html"
 
 # Finish
 rm -f /root/ins-xray.sh
-rm -f /root/set-br.sh
 rm -f /root/ssh-vpn.sh
 
 # Version
