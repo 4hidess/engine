@@ -966,7 +966,7 @@ rm -rf /etc/systemd/system/xray@.service.d
 cat> /etc/systemd/system/xray.service << END
 [Unit]
 Description=XRAY-Websocket Service
-Documentation=https://donaya365-Project.net https://github.com/XTLS/Xray-core
+Documentation=https://github.com/XTLS/Xray-core
 After=network.target nss-lookup.target
 
 [Service]
@@ -989,7 +989,7 @@ END
 cat> /etc/systemd/system/xray@.service << END
 [Unit]
 Description=XRAY-Websocket Service
-Documentation=https://donaya365-Project.net https://github.com/XTLS/Xray-core
+Documentation=https://github.com/XTLS/Xray-core
 After=network.target nss-lookup.target
 
 [Service]
