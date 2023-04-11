@@ -1,10 +1,5 @@
 #!/bin/bash
-# =========================================
-# Quick Setup | Script Setup Manager
-# Edition : Stable Edition V1.0
-# Auther  : Geo Project
-# (C) Copyright 2022
-# =========================================
+
 red='\e[1;31m'
 green='\e[0;32m'
 purple='\e[0;35m'
@@ -174,15 +169,16 @@ systemctl start resolvconf.service
 systemctl enable resolvconf.service
 
 # download script
+
 cd /usr/local/sbin
 wget -O xp "https://${Server_URL}/xp.sh"
-wget -O certxray "https://${Server_URL}/cert.sh"
+wget -O ssl "https://${Server_URL}/cert.sh"
 
 chmod +x certxray
 chmod +x xp
 
 echo "0 6 * * * root reboot" >> /etc/crontab
-echo "0 0 * * * root /usr/bin/xp" >> /etc/crontab
+echo "0 0 * * * root /usr/local/sbin/xp" >> /etc/crontab
 cd
 
 service cron restart >/dev/null 2>&1
@@ -219,7 +215,6 @@ history -c
 echo "unset HISTFILE" >> /etc/profile
 
 cd
-rm -f /root/ssh-vpn.sh
 
 # finishing
 clear
